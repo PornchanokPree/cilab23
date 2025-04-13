@@ -14,9 +14,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Docker Compose
-        run: docker compose up -d
+        run: 
+             docker compose up -d
              echo "waiting for containers to intialize..."
              sleep 20
+
       - name: Run test inside web container
         run: docker compose exec -it web curl http://localhost:5000/api/users>
 
